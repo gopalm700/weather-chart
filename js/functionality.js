@@ -40,6 +40,9 @@ var callApi = function(date){
  }
 
  var plotData = function(resp){
+ 	if(resp.data == null || resp.data == undefined || resp.data.length < 1){
+ 		return;
+ 	}
  	resp.data.sort(function(a, b){
  		var x = a.x -b.x;
  		return x != 0 ? x : a.y - b.y;
@@ -77,7 +80,9 @@ var callApi = function(date){
 
 
   var plotDataTempToTime = function(resp){
-
+  	if(resp.data == null || resp.data == undefined || resp.data.length < 1){
+ 		return;
+ 	}
 
   	for(var i = 0; i< resp.data.length; i++){
   		var x  = resp.data[i].x;
