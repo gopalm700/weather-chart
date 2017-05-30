@@ -2,7 +2,6 @@ package com.gopal.controller;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -23,9 +22,8 @@ public class WeatherController {
 	private IWeatherService weatherService;
 
 	@GET
-	@Path("{type}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response testHelloWorld(@PathParam("type") String type, @QueryParam("date") String date) {
+	public Response testHelloWorld(@QueryParam("date") String date) {
 		WeatherResponse weatherResponse = weatherService.getData(date);
 		if (weatherResponse == null || weatherResponse.getData() == null || weatherResponse.getData().size() < 1) {
 			return Response.status(Status.NO_CONTENT).build();

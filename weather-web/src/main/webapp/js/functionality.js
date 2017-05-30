@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 var callApi = function(date) {
 	var resp;
-	$.get("http://localhost:8080/rest/weather/temp/?date=" + date, function(data,
+	$.get("http://localhost:8080/rest/weather/?date=" + date, function(data,
 			status) {
 		if (status == 'success') {
 			resp = populateData(data);

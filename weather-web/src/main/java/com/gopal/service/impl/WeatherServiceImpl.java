@@ -51,7 +51,7 @@ public class WeatherServiceImpl implements IWeatherService {
 
 	private WeatherResponse convertToWeatherResponse(WeatherDto weatherDto) {
 		WeatherResponse weatherResponse = null;
-		if (weatherDto != null) {
+		if (weatherDto != null && null != weatherDto.getHistory()) {
 			weatherResponse = new WeatherResponse();
 			weatherResponse.setMetric("C");
 			List<Observation> observations = weatherDto.getHistory().getObservations();
